@@ -1,3 +1,4 @@
+import cloudinary from "../lib/cloudinary.js";
 import { generateToken } from "../lib/utils.js";
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
@@ -113,7 +114,32 @@ export const logout = (req, res) => {
     }
 };
 
+// Update user profile picture
 export const updateProfile = async (req, res) => {
+    try {
+        // get profile pic from request body
+        const { profilePic } = req.body;
 
+        // get user id from req object
+        const userId = req.user._id;
+
+        // check if profile pic is provided
+        if (!profilePic) {
+            return res.status(400).json({ message: "Please provide profile pic" });
+        }
+
+        // upload profile pic to cloudinary
+        const uploadResponse = await cloudinary.uploader.upload(profilePic);
+
+        // update user profile pic in database
+        const updatedUser = await User.findByIdAndUpdate(userId, { profilePic: uploadResponse.secure_url }, { new: true });
+
+        // send updated user data to front-end
+        res.status(200).json(updatedUser);
+    } catch (error) {
+        console.error(" Error in updateProfile controller ", error.message);
+        res.status(500).json({ message: "Internal Server Error" });
+
+    }
 
 };
