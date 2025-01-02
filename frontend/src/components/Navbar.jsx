@@ -2,7 +2,7 @@ import 'react'
 
 export const Navbar = () => {
     return (
-        <div className='bg-red-50'>Navbar</div>
+        <div className="text-1xl font-bold text-center mt-10">NavBar</div>
     )
 }
 export default Navbar
