@@ -13,18 +13,39 @@ const SignUpPage = () => {
 
     })
 
+    // Destructure the signup function and isSigningUp state from the useAuthStore hook 
     const { signup, isSigningUp } = useAuthStore();
 
     const validateForm = () => {
         if (!formData.fullName) {
             return toast.error('Full Name is required');
         }
+        if (!formData.email) {
+            return toast.error('Email is required');
+        }
+        // Check if the email is valid
+        if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            return toast.error('Email is invalid');
+        }
+        if (!formData.password) {
+            return toast.error('Password is required');
+        }
+        if (formData.password.length < 6) {
+            return toast.error('Password should be at least 6 characters');
+        }
+
+        return true;
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        validateForm();
-        signup(formData);
+
+        const success = validateForm();
+
+        if (success) {
+            signup(formData);
+        }
+
     };
     return (
         <div className='min-h-screen grid lg:grid-cols-2'>
