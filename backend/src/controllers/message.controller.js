@@ -25,7 +25,6 @@ export const getMessages = async (req, res) => {
 
         // get user to chat id
         const { id: userToChatId } = req.params;
-        console.log(userToChatId)
 
         // get my id
         const myId = req.user._id;
