@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { io } from "socket.io-client";
 
 
-const URL = "http://localhost:5001";
+const URL = import.meta.env.MODE === "development" ? "http://localhost:5001" : "/"
 
 // Create a store to manage authentication state
 export const useAuthStore = create((set, get) => ({
