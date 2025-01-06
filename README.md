@@ -4,10 +4,10 @@ A real-time chat application built with **Node.js**, **Socket.IO**, **React**, a
 
 ## Features
 - **User Authentication**: Secured with JWT.
-- **Real-Time Messaging**: Instant text and image messaging powered by Socket.IO.
+- **Real-Time Messaging**: Instant text and image messaging using Socket.IO.
 - **User Status**: Shows online/offline status of users.
 - **Persistent Connections**: WebSocket remains active during sessions.
-- **Scalable Backend**: Built with Node.js and MongoDB.
+- **Backend**: Built with Node.js and MongoDB.
 
 ## Technologies Used
 - **Frontend**: React, Zustand, Vite
