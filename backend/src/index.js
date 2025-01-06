@@ -23,7 +23,7 @@ app.use(cors({
 
 // routes for the app
 app.use("/api/auth", authRoutes);
-app.use("/api/message", messageRoutes);
+app.use("/api/messages", messageRoutes);
 
 // start the server and database connection
 app.listen(port, () => {

@@ -25,20 +25,21 @@ export const getMessages = async (req, res) => {
 
         // get user to chat id
         const { id: userToChatId } = req.params;
+        console.log(userToChatId)
 
         // get my id
         const myId = req.user._id;
 
         // get messages between me and user to chat
-        const message = await Message.find({
+        const messages = await Message.find({
             $or: [
                 { senderId: myId, receiverId: userToChatId },
-                { senderId: userToChatId, receiverId: myId }
-            ]
-        })
+                { senderId: userToChatId, receiverId: myId },
+            ],
+        });
 
         // send messages to client
-        res.status(200).json(message);
+        res.status(200).json(messages);
 
 
     } catch (error) {

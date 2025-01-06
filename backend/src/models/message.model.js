@@ -1,4 +1,3 @@
-import { text } from "express";
 import mongoose from "mongoose";
 
 const messageSchema = new mongoose.Schema(
@@ -15,17 +14,12 @@ const messageSchema = new mongoose.Schema(
         },
         text: {
             type: String,
-
         },
-        Image: {
+        image: {
             type: String,
         },
-
     },
-    {
-        timestamps: true,
-    },
-
+    { timestamps: true }
 );
 
 const Message = mongoose.model("Message", messageSchema);
