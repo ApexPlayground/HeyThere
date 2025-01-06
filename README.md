@@ -35,16 +35,16 @@ cd backend
 npm install
 npm run dev
 ```
-4.Navigate to the frontend directory:
+4. Navigate to the frontend directory:
 ```
 cd ../frontend
 ```
-5.Install dependencies and start the frontend:
+5. Install dependencies and start the frontend:
 ```
 npm install
 npm run dev
 ```
-6.Environment Variables
+6. Environment Variables
 Create a .env file in the backend directory with the following:
 
 ```
